@@ -13,7 +13,8 @@ Future<void> main() async {
 
   runApp(MaterialApp(
     home: HomePage(),
-    initialRoute: AppRoutes.homePage,
+    debugShowCheckedModeBanner: false,
+    initialRoute: AppRoutes.login,
     routes: AppRoutes.define(),
   ));
 }

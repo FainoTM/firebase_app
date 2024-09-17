@@ -1,3 +1,4 @@
+import 'package:firebase_aula/pages/database/databaseOperations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -22,13 +23,14 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 70,
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
-       // leading:
-       // IconButton(
-        //  icon: Icon(Icons.person, color: Colors.white,),
-       //   onPressed: (){
-           // Navigator.pushNamed(context, AppRoutes.loginUsuario);
-        //  },
-       // ),
+        actions: [
+        IconButton(
+          icon: Icon(Icons.logout, color: Colors.white,),
+          onPressed: (){
+            DatabaseOperationsFirebase().signOutUser();
+            Navigator.pushNamed(context, AppRoutes.login);
+          },
+        ),]
       ),
       body: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2
@@ -64,6 +66,7 @@ class _HomePageState extends State<HomePage> {
                     //case 1: Navigator.pushNamed(context, AppRoutes.cadastrarProduto);
                     case 3: Navigator.pushNamed(context, AppRoutes.listarPessoa);
                     //break;
+                    case 6: Navigator.pushNamed(context, AppRoutes.webPage);
                   }
                 },
                 child: Card(
